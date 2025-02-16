@@ -129,7 +129,7 @@ document.querySelector('.logout-btn').addEventListener('click', function() {
 });
 
 document.querySelector('.dash-btn').addEventListener('click', function() {
-    window.location.href = 'dashboard.php'; // Redirect to logout.php
+    window.location.href = 'dashboard/dashboard.php'; // Redirect to logout.php
 });
 
 document.getElementById("menu-toggle").addEventListener("change", function() {

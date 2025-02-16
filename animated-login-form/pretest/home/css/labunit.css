@@ -153,10 +153,7 @@ footer button {
     transition: background 0.3s ease, color 0.3s ease;
 }
 
-footer button:hover {
-    background: #ffffff; /* White background on hover */
-    color: #1a1a1a; /* Dark text on hover */
-}
+
 
 .next-button {
     border-color: #4caf50; /* Green border for next button */

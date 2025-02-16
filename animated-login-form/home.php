@@ -89,6 +89,29 @@ $username = $_SESSION['username'];
             </a>
         </div>
     </div>
+
+
+    <div id="settings-modal" class="settings-modal">
+    <div class="settings-content">
+        <h2>Settings</h2>
+        <label for="bgm-volume">BGM Volume:</label>
+        <input type="range" id="bgm-volume" min="0" max="1" step="0.001" value="1">
+        <label for="sfx-volume">SFX Volume:</label>
+        <input type="range" id="sfx-volume" min="0" max="1" step="0.001" value="1">
+        <label for="mute">Mute:</label>
+        <input type="checkbox" id="mute">
+        <button id="close-settings">Close</button>
+    </div>
+</div>
+    <audio id="bgm" loop autoplay muted>
+        <source src="bgm.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="sfx">
+        <source src="sfx.mp3" type="audio/mpeg">
+    </audio>
+<script src="script.js"></script>
+
+
 </div>
 
     </section>

@@ -340,6 +340,14 @@ $conn->close();
             <button id="close-settings">Close</button>
         </div>
     </div>
+    <audio id="bgm" loop autoplay muted>
+    <source src="bgm.mp3" type="audio/mpeg">
+</audio>
+<audio id="sfx">
+    <source src="sfx.mp3" type="audio/mpeg">
+</audio>
+<script src="script.js"></script>
+
     <header class="navbar">
         <div class="nav-left"><?php echo htmlspecialchars($username); ?></div>
     </header>
