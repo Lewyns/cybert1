@@ -101,7 +101,7 @@ $conn->close();
     <script defer src="../bar/script.js"></script>
     <!-- Content Section -->
     <section class="content-section">
-        <h1>Malware & Threats</h1>
+        <h1>4|Malware & Threats</h1>
 
         <div class="content-text">
             <p><strong>1. มัลแวร์คืออะไร?</strong><br>
@@ -129,6 +129,10 @@ $conn->close();
     <footer class="footer-buttons">
         <button class="back-button" onclick="window.location.href='../home.php'">back</button>
         <button class="next-button" onclick="window.location.href='lab_unit4.php'">next</button>
-    </footer>
+        <audio id="bgm" loop autoplay muted>
+        <source src="../../../assets/sound/bgm.mp3" type="audio/mpeg">
+    </audio>
+    <script src="../dashboard/script.js"></script>
+    <script defer src="../setting/script.js"></script>
 </body>
 </html>

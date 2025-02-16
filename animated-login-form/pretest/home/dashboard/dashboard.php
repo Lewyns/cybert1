@@ -149,7 +149,7 @@ $stmt->close();
 
     <!-- ปุ่ม SETTING และ LOGOUT (ซ่อนก่อน) -->
     <div class="menu-buttons">
-        <button class="home-btn">HOME</button>
+        <button class="home-btn" onclick="changePage()">HOME</button>
         <button id="setting-btn" class="setting-btn">SETTING</button>
         <button class="logout-btn">LOGOUT</button>
     </div>
@@ -158,19 +158,20 @@ $stmt->close();
         <path d="M48.33,45.6H18a14.17,14.17,0,0,1,0-28.34H78.86a17.37,17.37,0,0,1,0,34.74H42.33l-21-21.26L47.75,4"/>
     </symbol>
     </svg>
-    <!-- Settings Modal -->
-    <div id="settings-modal" class="settings-modal">
-        <div class="settings-content">
-            <h2>Settings</h2>
-            <label for="bgm-volume">BGM Volume:</label>
-            <input type="range" id="bgm-volume" min="0" max="1" step="0.001" value="1">
-            <label for="sfx-volume">SFX Volume:</label>
-            <input type="range" id="sfx-volume" min="0" max="1" step="0.001" value="1">
-            <label for="mute">Mute:</label>
-            <input type="checkbox" id="mute">
-            <button id="close-settings">Close</button>
-        </div>
+<!-- Settings Modal -->
+<div id="settings-modal" class="settings-modal">
+    <div class="settings-content">
+        <h2>Settings</h2>
+        <label for="bgm-volume">BGM Volume:</label>
+        <input type="range" id="bgm-volume" min="0" max="1" step="0.001" value="1">
+        <label for="sfx-volume">SFX Volume:</label>
+        <input type="range" id="sfx-volume" min="0" max="1" step="0.001" value="1">
+        <label for="mute">Mute:</label>
+        <input type="checkbox" id="mute">
+        <button id="close-settings">Close</button>
     </div>
+</div>
+
     
 
     <div class="dashboard-container">
@@ -301,6 +302,30 @@ $stmt->close();
             }
         });
     </script>
+    <script>
+        const audio = document.getElementById('bgm');
+
+        // บันทึกสถานะเพลงก่อนเปลี่ยนหน้าเว็บ
+        window.addEventListener('beforeunload', () => {
+            localStorage.setItem('audioCurrentTime', audio.currentTime);
+            localStorage.setItem('audioPlaying', !audio.paused);
+        });
+
+        // ดึงสถานะเพลงเมื่อโหลดหน้าใหม่
+        window.addEventListener('load', () => {
+            const savedTime = parseFloat(localStorage.getItem('audioCurrentTime')) || 0;
+            const isPlaying = localStorage.getItem('audioPlaying') === 'true';
+
+            audio.currentTime = savedTime;
+            if (isPlaying) {
+                audio.play();
+            }
+        });
+    </script>
     <script defer src="script.js"></script>
+
+    <audio id="bgm" loop autoplay>
+        <source src="../../../assets/sound/bgm.mp3" type="audio/mpeg">
+    </audio>
 </body>
 </html>

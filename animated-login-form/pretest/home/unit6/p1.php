@@ -102,7 +102,7 @@ $conn->close();
 
     <!-- Content Section -->
     <section class="content-section">
-        <h1>Cybersecurity & Threat Prevention</h1>
+        <h1>6|Cybersecurity & Threat Prevention</h1>
 
         <div class="content-text">
             <p><strong>1. ความสำคัญของความปลอดภัยทางไซเบอร์</strong><br>
@@ -129,5 +129,8 @@ $conn->close();
         <button class="back-button" onclick="window.location.href='../home.php'">back</button>
         <button class="next-button" onclick="window.location.href='lab_unit6.php'">next</button>
     </footer>
-</body>
+    <audio id="bgm" loop autoplay muted>
+        <source src="../../../assets/sound/bgm.mp3" type="audio/mpeg">
+    </audio>
+    <script src="../dashboard/script.js"></script>
 </html>

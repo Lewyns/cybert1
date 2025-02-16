@@ -111,6 +111,8 @@ function selectOption(selectedOption) {
 
 function nextQuestion() {
     const selectedOption = document.querySelector(".option.selected");
+    const correctSound = document.getElementById("correct-sound");
+    const wrongSound = document.getElementById("wrong-sound");
 
     if (!selectedOption) {
         alert("กรุณาเลือกคำตอบก่อน");
@@ -122,6 +124,12 @@ function nextQuestion() {
         isShowingAnswer = true;
         return;
     }
+
+    // หยุดเสียงก่อนเปลี่ยนคำถาม
+    correctSound.pause();
+    correctSound.currentTime = 0;
+    wrongSound.pause();
+    wrongSound.currentTime = 0;
 
     const currentQuestion = questions[currentQuestionIndex];
     if (selectedOption.textContent === currentQuestion.answer) {
@@ -165,6 +173,13 @@ function showAnswer() {
     const options = document.querySelectorAll(".option");
     const currentQuestion = questions[currentQuestionIndex];
     const selectedOption = document.querySelector(".option.selected");
+    const correctSound = document.getElementById("correct-sound");
+    const wrongSound = document.getElementById("wrong-sound");
+
+    if (!selectedOption) {
+        alert("กรุณาเลือกคำตอบก่อน");
+        return;
+    }
 
     options.forEach(option => {
         if (option.textContent === currentQuestion.answer) {
@@ -174,8 +189,20 @@ function showAnswer() {
             option.classList.add("incorrect");
         }
     });
-}
 
+    // หยุดเสียงก่อนหน้า
+    correctSound.pause();
+    correctSound.currentTime = 0;
+    wrongSound.pause();
+    wrongSound.currentTime = 0;
+
+    // เล่นเสียงใหม่ตามคำตอบที่เลือก
+    if (selectedOption.textContent === currentQuestion.answer) {
+        correctSound.play();
+    } else {
+        wrongSound.play();
+    }
+}
 // ฟังก์ชันสำหรับแสดงเวลาปัจจุบัน
 /*function updateClock() {
     const clockElement = document.getElementById('clock');

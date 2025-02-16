@@ -102,7 +102,7 @@ $conn->close();
 
     <!-- Content Section -->
     <section class="content-section">
-        <h1>Safe Browsing & Online Scams</h1>
+        <h1>5|Safe Browsing & Online Scams</h1>
 
         <div class="content-text">
             <p><strong>1. การท่องเน็ตอย่างปลอดภัย</strong></p>
@@ -127,7 +127,10 @@ $conn->close();
             </ul>
         </div>
     </section>
-
+    <audio id="bgm" loop autoplay muted>
+        <source src="../../../assets/sound/bgm.mp3" type="audio/mpeg">
+    </audio>
+    <script src="../dashboard/script.js"></script>
     <!-- Footer Buttons -->
     <footer class="footer-buttons">
         <button class="back-button" onclick="window.location.href='../home.php'">back</button>

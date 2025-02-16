@@ -102,7 +102,7 @@ $username = $_SESSION['username'];
         <input type="checkbox" id="mute">
         <button id="close-settings">Close</button>
     </div>
-</div>
+
     <audio id="bgm" loop autoplay muted>
         <source src="bgm.mp3" type="audio/mpeg">
     </audio>
@@ -110,9 +110,26 @@ $username = $_SESSION['username'];
         <source src="sfx.mp3" type="audio/mpeg">
     </audio>
 <script src="script.js"></script>
+<script>
+    const audio = document.getElementById('bgm');
 
+    // บันทึกสถานะเพลงก่อนเปลี่ยนหน้าเว็บ
+    window.addEventListener('beforeunload', () => {
+        sessionStorage.setItem('audioCurrentTime', audio.currentTime);
+        sessionStorage.setItem('audioPlaying', !audio.paused);
+    });
 
-</div>
+    // ดึงสถานะเพลงเมื่อโหลดหน้าใหม่
+    window.addEventListener('load', () => {
+        const savedTime = parseFloat(sessionStorage.getItem('audioCurrentTime')) || 0;
+        const isPlaying = sessionStorage.getItem('audioPlaying') === 'true';
+
+        audio.currentTime = savedTime;
+        if (isPlaying) {
+            audio.play();
+        }
+    });
+</script>
 
     </section>
 
